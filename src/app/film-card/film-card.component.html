@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div>
+    <img class="backdrop-img" [src]="filmCard.backdrop_path | transformPath: 1280" alt="backdrop-image"></div>
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="poster col-4">
+        <img class="poster-img"
+             [src]="filmCard.poster_path | transformPath: 300"
+             [alt]=filmCard.title>
+      </div>
+      <div class="film-review col-7">
+        <div class="film-title">
+          <h1 class="card-title">{{filmCard.title}}</h1>
+          <h5 class="card-origin-title">{{filmCard.original_title}}</h5>
+        </div>
+        <hr>
+        <div class="film-details">
+          <h6 class="card-title"><b>Year</b>: <span>{{filmCard.release_date | date : 'y'}}</span></h6>
+          <h6 class="card-title"><b>Genre: </b> <span>{{genres}}</span></h6>
+          <h6 class="card-title"><b>Production companies: </b> <span>{{productionCompanies}}</span></h6>
+          <h6 class="card-title"><b>Runtime: </b> <span>{{convertMinsToHrs(filmCard.runtime)}}</span></h6>
+        </div>
+        <hr>
+        <div class="film-overview">
+          <h4 class="card-title">Film overview</h4>
+          <p>{{filmCard.overview}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-inner">
+  <div class="container-info">
+    <div class="row justify-content-between">
+      <div class="some-text col-8">
+        <mat-tab-group>
+          <mat-tab label="Actors">
+            <h4><em>Top Billed Cast</em></h4>
+            <div class="film-actors">
+              <div class="card mr-2 p-2"
+                   *ngFor="let person of cast">
+                <div class="view zoom" [routerLink]="['/actors', person.id]">
+                  <img
+                    src="{{person.profile_path | transformPath: 185}}"
+                    src-fallback="{{ 'assets/no-image-found.jpg' }}"
+                    alt="actors.small.poster_path">
+                </div>
+                <div class="film-rate" style="max-width: 185px">
+                  <p><span>{{person.name}}</span></p>
+                  <h6>{{person.character}}</h6>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+
+          <mat-tab label="Trailers">
+            <div class="film-trailer">
+              <div *ngFor="let abc of videoLinks">
+                <div class="videoFrame">
+                  <iframe [src]="getEmbedUrl(abc) | safe"
+                          width="580"
+                          height="400"
+                          frameborder="3"
+                          allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+
+          <mat-tab label="Similar movies">
+            <h4><em>Similar movies</em></h4>
+            <div class="film-actors">
+              <div class="card mr-2 p-2"
+                   *ngFor="let item of similarMovies">
+                <div class="view zoom" (click)="openSimilar(item.id)" [routerLink]="['/films', item.id]">
+                  <img
+                    src="{{apiService.getSmallPosters(item.poster_path)}}"
+                    src-fallback="{{ 'assets/no-image-found.jpg' }}"
+                    alt="films.small.poster_path">
+                </div>
+                <div class="film-rate" style="max-width: 185px">
+                  <p><span>{{item.title}}</span></p>
+                  <h6>Year: {{item.release_date | date : 'y'}}</h6>
+                  <h6>Vote average: <span>{{item.vote_average}}</span></h6>
+                </div>
+              </div>
+            </div>
+
+
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="dop-info col-4">
+        <h4><em>Additional info</em></h4>
+        <div class="info-group">
+          <h6 class="card-title"><b>Release date: </b> <span>{{filmCard.release_date | date}}</span></h6>
+          <h6 class="card-title"><b>Vote average: </b><span>{{filmCard.vote_average}}</span></h6>
+          <h6 class="card-title"><b>Budget: </b><span>$ {{budget}}</span></h6>
+          <h6 class="card-title"><b>Revenue: </b><span>$ {{revenue}}</span></h6>
+          <h6 class="card-title"><b>Homepage: </b><a href="{{filmCard.homepage}}">{{filmCard.homepage}}</a></h6>
+          <h6 class="card-title"><b>Tagline: </b><span>{{filmCard.tagline}}</span></h6>
+          <h6 class="card-title"><b>Production countries: </b> <span>{{productionCountries}}</span></h6>
+        </div>
+        <div class="logo-img">
+          <h6><b>Production companies:</b></h6>
+          <div class="logo-path" *ngFor="let item of productionCompaniesLogo">
+            <img
+              src="{{item.logo_path | transformPath: 185}}"
+              alt="item.logo_path">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

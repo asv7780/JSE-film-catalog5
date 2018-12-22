@@ -1,0 +1,144 @@
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 0
+}
+
+.container-fluid {
+  background: #0b0e2a;
+  margin-top: 70px;
+  position: relative;
+
+}
+
+.container {
+  left: 50%;
+  margin-top: 15px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.backdrop-img {
+  opacity: 0.123;
+  width: 100%;
+}
+
+.poster-img {
+  margin: 30px;
+  width: 100%;
+}
+
+.dop-info {
+  margin-top: 53px;
+}
+
+.info-group {
+  margin-top: 30px;
+}
+
+.logo-img, .buttons {
+  text-align: center;
+
+  h6 {
+    text-align: start;
+  }
+
+  i {
+    color: white;
+  }
+
+  button {
+    margin-top: 0;
+    padding: 7px 30px;
+  }
+}
+
+.logo-path {
+  display: inline-block;
+  margin: 5px;
+  width: 25%;
+}
+
+.logo-img img {
+  width: 100%;
+}
+
+.film-review {
+  color: white;
+
+  hr {
+    background: #ffffff;
+    margin-top: 0;
+  }
+}
+
+.container-info {
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
+}
+
+.some-text h4 {
+  margin-left: 15px;
+}
+
+.film-trailer {
+  display: grid;
+  justify-content: center;
+}
+
+.film-actors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .film-details h6,
+  .film-overview p {
+    font-size: x-small;
+  }
+  .film-title h1 {
+    display: none;
+  }
+  iframe {
+    width: 497px;
+  }
+  .buttons {
+    button {
+      padding: 2px 15px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .container {
+    margin-top: 35px;
+    top: 66px;
+    padding-top: 40px;
+  }
+
+  .film-title h1 {
+    display: none;
+  }
+  .film-overview {
+    p {
+      font-size: x-small;
+    }
+
+    h4 {
+      font-size: 10px;
+    }
+
+  }
+  hr {
+    margin: 2px;
+  }
+}

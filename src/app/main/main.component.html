@@ -1,0 +1,49 @@
+<div class="container p-3">
+  <h2>Welcome to the Alex' films application!</h2>
+  <div class="container mt-5">
+    <h4 routerLink="/films"><em>Popular films</em></h4>
+    <div class="films">
+      <div class="card mr-2 p-2"
+           *ngFor="let film of films">
+        <div class="view zoom" [routerLink]="['/films', film.id]">
+          <img
+            src="{{film.poster_path | transformPath: 300}}"
+            src-fallback="{{ 'assets/no-image-found.jpg' }}"
+            alt="{{film.original_title}}">
+        </div>
+        <div class="card-body">
+          <p class="h5"><span>{{film.title}}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h4 routerLink="/actors"><em>Popular actors</em></h4>
+    <div class="actors">
+      <div class="card mr-2 p-2"
+           *ngFor="let actor of actors">
+        <!-- Card image -->
+        <div class="view zoom" [routerLink]="['/actors', actor.id]">
+          <img
+            class="card-img-top img-fluid"
+            src="{{actor.profile_path | transformPath: 300}}"
+            src-fallback="{{'assets/no-image-found.jpg'}}"
+            alt="{{actor.name}}">
+        </div>
+        <!-- Card content -->
+        <div class="card-body">
+          <p class="h5"><span>{{actor.name}}</span>
+          <p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

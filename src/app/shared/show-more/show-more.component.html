@@ -1,0 +1,12 @@
+<div class="container">
+  <p class="text-center">{{pageCounter}} of {{totalPages}}</p>
+  <button
+    [disabled]="end"
+    type="button"
+    class="btn btn-sm btn-outline-black waves-light w-25 mx-auto"
+    mdbWavesEffect
+    (click)="getNextPage()"
+  >
+    <i class="fa fa-3x fa-chevron-circle-down" aria-hidden="true"></i>
+  </button>
+</div>

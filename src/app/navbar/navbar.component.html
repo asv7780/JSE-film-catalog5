@@ -1,0 +1,49 @@
+<mdb-navbar
+  SideClass="navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar ie-nav"
+  [containerInside]="true"
+>
+  <logo>
+    <a class="logo navbar-brand" (click)="goToAbout()">
+      <h1 class="text-hide"
+          style="width: 110px; height: 35px; background: url('../../assets/logaster.svg') no-repeat;">
+        Film-catalog</h1>
+    </a>
+  </logo>
+  <links>
+    <ul class="navbar-nav mr-auto font-weight-normal">
+      <li
+        class="nav-item waves-light"
+        mdbWavesEffect
+        *ngFor="let link of links"
+        [routerLinkActive]="link.active"
+      >
+        <a
+          class="nav-link"
+          [routerLink]="link.path"
+        >
+          {{link.label}}
+        </a>
+      </li>
+    </ul>
+    <app-search></app-search>
+    <div class="dropdown" mdbDropdown>
+      <button mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle waves-light" type="button"
+              mdbWavesEffect>
+
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+
+      </button>
+      <div class="dropdown-menu dropdown-primary">
+        <a class="dropdown-item" href="#">Action</a>
+        <a *ngIf="isLoggedIn"
+           class="dropdown-item"
+           routerLink="/login"
+           routerLinkActive="active"
+           (click)="logOut()">
+          Logout</a>
+        <a *ngIf="!isLoggedIn"
+           class="dropdown-item">Login</a>
+      </div>
+    </div>
+  </links>
+</mdb-navbar>

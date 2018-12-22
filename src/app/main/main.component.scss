@@ -1,0 +1,21 @@
+h2 {
+  color: #080341;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.films,
+.actors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin: 8px;
+}
+
+.card-body {
+  max-width: 300px;
+  margin-top: 6px;
+}

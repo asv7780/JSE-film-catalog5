@@ -1,0 +1,21 @@
+<div class="container films">
+  <div class="container">
+    <div class="row">
+      <div
+        class="mt-2 mb-2"
+        appExtension
+        *ngFor="let film of films">
+        <app-film-item
+          [film]="film"
+          (makeBookmark)="bookmarkFilm($event)"
+          (makeFavorite)="starFilm($event)"
+        ></app-film-item>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="!isLoad">
+    <app-spinner></app-spinner>
+  </div>
+  <app-show-more [totalPages]="totalPages" (pageEmitter)="getNextPage($event)"></app-show-more>
+</div>

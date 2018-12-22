@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+main.smaller {
+  padding-top: 80px;
+}
+
+main {
+  align-content: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100%;
+  padding-top: 158px;
+  width: 100%;
+}
+
+div.header.gradient {
+  background-image: radial-gradient(at 25% top, #32112c 0%, #0a1526 40%);
+  width: 100%;
+  z-index: 0;
+}
+
+div.header {
+  background-color: #0a1526;
+  background-position: 0 0;
+  left: 0;
+  position: relative;
+  top: 0;
+}
+
+div {
+  display: block;
+}
+
+div.header div.inner_content {
+  background-image: url(https://www.themoviedb.org/assets/1/v4/marketing/red_pipes-594140f35efb300741add9827cc4f41053b0a4bb7ba249a40375377cc9d22d47.svg);
+  background-position: center -250px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  left: 0;
+  padding-top: 70px;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+div.header div.inner_content div.content {
+  color: #fff;
+  margin: 0 auto;
+  padding: 20px 0 70px 0;
+  text-align: center;
+  width: 800px;
+}
+
+div.header div.inner_content div.content h2 {
+  box-sizing: border-box;
+  display: block;
+  font-family: 'Shrikhand', cursive;
+  font-size: 10em;
+  font-weight: 400;
+  height: 233px;
+  left: 0;
+  line-height: 233px;
+  padding: 0;
+  position: relative;
+  top: 0;
+  margin: 0 0 4px 0;
+}
+
+div.header div.inner_content img {
+  border: 0;
+  left: 0;
+  margin-top: -140px;
+  outline: none;
+  position: relative;
+  top: 0;
+}
+
+div.header div.inner_content div.content h3 {
+  box-sizing: border-box;
+  display: block;
+  font-size: 4em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+div.header div.inner_content div.content p {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+div.header div.inner_content div.content h4 {
+  box-sizing: border-box;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 40px;
+  margin-top: 70px;
+}
+
+div.header div.inner_content div.wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+
+div.header div.inner_content div.wrapper div {
+  align-items: flex-start;
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+div.header div.inner_content div.wrapper div > div {
+  color: #d40242;
+  font-weight: 700;
+  font-size: 4em;
+  line-height: 0.8em;
+  opacity: 0.7;
+  width: 8vw;
+}
+
+a.button.white {
+  background-color: #fff;
+  color: #d40242;
+}
+
+a.button {
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-top: 40px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: 0.2s all;
+}
+
+div.apps {
+  background-color: #eeeeee;
+  padding: 64px 0;
+  width: 100%;
+}
+
+div.apps div.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+div.apps h3 {
+  box-sizing: border-box;
+  color: #333333;
+  font-size: 1.6em;
+  font-weight: 600;
+  line-height: 1.2em;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+div.apps div.content div.cards {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+div.apps div.content div.card {
+  color: #fff;
+  height: 234px;
+  overflow: hidden;
+  width: 320px;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+div.apps div.content div.card div.title {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  height: 132px;
+  padding: 16px;
+  width: 100%;
+}
+
+div.apps div.content div.card div.info {
+  align-items: flex-end;
+  display: flex;
+  width: 100%;
+}
+
+div.apps div.content div.card div.description {
+  box-sizing: border-box;
+  color: #000;
+  font-size: 1em;
+  padding: 16px;
+}
+
+div.apps div.content div.card div.description > *:first-child {
+  display: block;
+}
+
+div.apps div.content div.card div.description p {
+  color: #000;
+  font-size: 1em;
+  font-weight: 300;
+  height: 4.2em;
+  line-height: 1.4em;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+div.stats {
+  background-color: #fff;
+  padding: 64px 0;
+  width: 100%;
+}
+
+div.stats div.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+div.stats div.content h2 {
+  box-sizing: border-box;
+  color: #0a1526;
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  padding: 0;
+}
+
+p {
+  box-sizing: border-box;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+div.stats div.content div.inner_stats {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  width: 679px;
+}
+
+div.stats div.content div.inner_stats div.stat {
+  box-sizing: border-box;
+  min-width: 25%;
+  padding-right: 40px;
+  padding-bottom: 10px;
+}
+
+div.stats div.content div.inner_stats div.stat p:first-of-type {
+  color: #0a1526;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+div.stats div.content div.inner_stats div.stat p {
+  margin-bottom: 0;
+}
+
+div.contact a.button {
+  background-color: #d40242;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-top: 30px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: 0.2s all;
+}
+
+div.stats img {
+  border-radius: 50%;
+}

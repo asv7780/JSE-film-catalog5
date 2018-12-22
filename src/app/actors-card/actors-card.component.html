@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div>
+    <img class="backdrop-img" [src]="actorFilms[0].backdrop_path | transformPath: 1280" src-fallback="{{
+    'assets/no-image-found.jpg' }}" alt="backdrop-image"></div>
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="poster col-4">
+        <div class="actor-img view zoom mt-2">
+          <img class="poster-img"
+               [src]="actorCard[0].profile_path | transformPath: 300"
+               [alt]=actorCard.title>
+        </div>
+
+      </div>
+      <div class="actor-review col-7">
+        <div class="actor-title">
+          <h1 class="card-title">{{actorCard[0].name}}</h1>
+          <h6 *ngIf="detailsData.deathday ===  null"
+              class="card-title"><b>Age: </b>
+            <span>{{getAge(detailsData.birthday
+              | date : 'y')}}</span></h6>
+          <h6 class="card-title"><b>Popularity: </b><span>{{(actorCard[0].popularity).toFixed(1)}}</span></h6>
+        </div>
+        <hr>
+        <div class="actor-overview">
+          <h4 class="card-title"><b>Biography</b></h4>
+          <p>{{detailsData.biography | transformDescr: 1200}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-inner">
+  <div class="container-info">
+    <div class="row justify-content-between">
+      <div class="some-text col-8">
+        <div class="credits">
+          <h4><em>Known For</em></h4>
+          <div class="film-credits">
+            <div class="card mr-2 p-2"
+                 *ngFor="let item of creditsData">
+              <div class="view zoom"
+                   [routerLink]="['/films', item.id]">
+                <img
+                  src="{{item.poster_path | transformPath: 185}}"
+                  src-fallback="{{ 'assets/no-image-found.jpg' }}"
+                  alt="films.small.poster_path">
+              </div>
+              <div class="film-rate">
+                <p class="h6">{{item.title}}</p>
+                <h6><b>Year: </b>{{item.release_date | date : 'y'}}</h6>
+                <h6><b>Character: </b><span>{{item.character}}</span></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dop-info col-4">
+        <h4><em>Additional info</em></h4>
+        <div class="info-group">
+          <h6 class="card-title"><b>Birthday: </b> <span>{{detailsData.birthday | date: 'longDate'}}</span></h6>
+          <h6 *ngIf="detailsData.deathday !== null" class="card-title"><b>Deathday: </b> <span>{{detailsData.deathday |
+            date:
+            'longDate'}}</span><span> (age: {{getDeathAge(detailsData.deathday |
+            date:
+            'y', detailsData.birthday |
+            date:
+            'y')}})</span></h6>
+          <h6 class="card-title"><b>Gender: </b><span>{{getGender(detailsData.gender)}}</span></h6>
+          <h6 class="card-title"><b>Known for: </b><span>{{actorCard[0].known_for_department}}</span></h6>
+          <h6 class="card-title"><b>Also known as: </b><span>{{detailsData.also_known_as}}</span></h6>
+          <h6 class="card-title"><b>Place of birth: </b><span>{{detailsData.place_of_birth}}</span></h6>
+          <h6 class="card-title"><b>Homepage: </b><a href="{{detailsData.homepage}}">{{detailsData.homepage}}</a></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

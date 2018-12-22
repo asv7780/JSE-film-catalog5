@@ -1,0 +1,61 @@
+<div class="card">
+
+  <!-- Card image -->
+  <div class="view overlay view zoom" [routerLink]="['/films', film.id]">
+    <div class="view zoom">
+      <img
+        class="card-img-top img-fluid"
+        src="{{buildImgUrl(film.poster_path)}}"
+        src-fallback="{{ 'assets/no-image-found.jpg' }}"
+        alt="{{film.original_title}}">
+      <div class="mask flex-center">
+        <p class="white-text">Zoom effect</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card content -->
+  <div
+    class="card-body"
+    [ngClass]="{'fav': film.isFavorite}"
+  >
+    <!-- Title -->
+    <h5 class="card-title">{{film.title}}</h5>
+    <h6 class="card-title">{{film.release_date | date}}</h6>
+
+    <!-- Text -->
+    <p class="card-text">{{(film.overview.length < 120) ? film.overview : film.overview.substring(0, 120) + '...'}}</p>
+    <hr>
+    <div class="d-flex flex-row justify-content-center">
+      <i
+        class="fa"
+        aria-hidden="true"
+        *ngFor="let i of popularityList"
+        [ngClass]="{
+        'fa-star': (i <= setPop(film.popularity)),
+        'fa-star-o': (i > setPop(film.popularity))
+        }"
+      ></i>
+    </div>
+    <hr>
+    <div class="d-flex flex-row justify-content-center">
+      <a class="btn btn-rounded btn-sm btn-indigo align-self-center">
+        <i class="fa menu-button  fa-bars" aria-hidden="true"></i>
+      </a>
+      <a class="btn btn-rounded btn-sm btn-indigo align-self-center" (click)="addToFavorite()">
+        <i
+          class="fa star-button"
+          aria-hidden="true"
+          [ngClass]="{'fa-star-o': !film.isFavorite, 'fa-star fav-ico': film.isFavorite}"
+        ></i>
+      </a>
+      <a class="btn btn-rounded btn-sm btn-indigo align-self-center" (click)="addToBookmarks()">
+        <i
+          class="fa bookmark-button"
+          aria-hidden="true"
+          [ngClass]="{'fa-bookmark-o': !film.isBookMarked, 'fa-bookmark': film.isBookMarked}"
+        ></i>
+      </a>
+    </div>
+  </div>
+</div>

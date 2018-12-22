@@ -1,0 +1,54 @@
+<div class="card">
+
+  <!-- Card image -->
+  <div class="view overlay view zoom"
+       [routerLink]="['/actors', actors.id]">
+    <div class="view zoom">
+      <img
+        class="card-img-top img-fluid"
+        src="{{buildImgUrl(actors.profile_path)}}"
+        src-fallback="{{ 'assets/no-image-found.jpg ' }}"
+        alt="{{actors.name}}">
+      <div class="mask flex-center">
+        <p class="white-text">Zoom effect</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card content -->
+  <div
+    class="card-body"
+    [ngClass]="{'fav': actors.isFavorite}"
+  >
+    <!-- Title -->
+    <h5 class="card-title">{{actors.name}}</h5>
+    <!-- Text -->
+    <hr>
+    <div class="d-flex flex-row justify-content-center">
+      <i
+        class="fa fa-star"
+        aria-hidden="true"
+        *ngFor="let i of popularityList"
+        [ngClass]="{
+        'fa-star': (i <= setPop(actors.popularity)),
+        'fa-star-o': (i > setPop(actors.popularity))
+        }"
+      ></i>
+    </div>
+    <hr>
+    <div class="d-flex flex-row justify-content-center">
+      <a class="btn btn-rounded btn-sm btn-indigo align-self-center mbtn">
+        <i class="fa  fa-bars menu-button" aria-hidden="true"></i>
+      </a>
+      <a class="btn btn-rounded btn-sm btn-indigo align-self-center mbtn" (click)="addToFavorite()">
+        <i
+          class="fa star-button"
+          aria-hidden="true"
+          [ngClass]="{'fa-star-o': !actors.isFavorite, 'fa-star fav-ico': actors.isFavorite}"
+        ></i>
+      </a>
+    </div>
+
+  </div>
+
+</div>

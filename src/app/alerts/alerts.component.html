@@ -1,0 +1,23 @@
+<div
+  class="alert alert-app-level alert-success"
+  [ngClass]="{
+  'alert-success': message.type === 'success',
+  'alert-danger': message.type === 'danger',
+  'alert-info': message.type === 'info',
+  'alert-warning': message.type === 'warning'
+  }"
+  *ngIf="isShow">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+      </div>
+      <div class="alert-text">
+        {{message.body}}
+      </div>
+      <div class="alert-actions" *ngIf="message.action">
+        <button class="btn alert-action" (click)="submit()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

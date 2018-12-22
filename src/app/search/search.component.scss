@@ -1,0 +1,33 @@
+.inputVal {
+  display: none;
+}
+
+.counter-danger {
+  border-bottom: 5px solid #0b0e2a !important;
+  box-shadow: 0 1px 0 0 #F44336 !important;
+}
+
+.md-form {
+  margin-bottom: 0;
+}
+
+.md-form label {
+  font-size: small;
+  margin-left: 10px;
+}
+
+.md-form .prefix.active {
+  color: #0b0e2a;
+}
+
+.md-form.form-sm .prefix ~ input, .md-form.form-sm .prefix ~ textarea {
+  color: #fff;
+}
+
+.md-form label.active {
+  color: #0b0e2a;
+}
+
+.md-form input[type=text]:focus:not([readonly]) + label, .md-form input[type=password]:focus:not([readonly]) + label, .md-form input[type=email]:focus:not([readonly]) + label, .md-form input[type=url]:focus:not([readonly]) + label, .md-form input[type=time]:focus:not([readonly]) + label, .md-form input[type=date]:focus:not([readonly]) + label, .md-form input[type=datetime-local]:focus:not([readonly]) + label, .md-form input[type=tel]:focus:not([readonly]) + label, .md-form input[type=number]:focus:not([readonly]) + label, .md-form input[type=search-md]:focus:not([readonly]) + label, .md-form input[type=search]:focus:not([readonly]) + label, .md-form textarea.md-textarea:focus:not([readonly]) + label {
+  color: #0b0e2a;
+}
